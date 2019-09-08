@@ -1,5 +1,14 @@
 version: "3"
 services:
+  typo3:
+    build: ./src
+    ports:
+      - "80:80"
+    volumes:
+      - public/fileadmin:/app/public/fileadmin
+      - public/typo3conf:/app/typo3conf
+    networks:
+      - backend
   database:
     image: mysql:5.7
     command:

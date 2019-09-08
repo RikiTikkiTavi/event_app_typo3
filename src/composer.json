@@ -41,5 +41,11 @@
 		"post-autoload-dump": [
 			"@typo3-cms-scripts"
 		]
+	},
+	"autoload": {
+		"psr-4": {
+			"MyVendor\\EventInventory\\": "public/typo3conf/ext/event_inventory/Classes/",
+			"MyVendor\\StoreInventory\\": "public/typo3conf/ext/store_inventory/Classes/"
+		}
 	}
 }
