@@ -5,7 +5,7 @@ CREATE TABLE tx_eventinventory_domain_model_event
 
     name        varchar(255)     DEFAULT ''  NOT NULL,
     description text                         NOT NULL,
-    date_time   DATETIME         default NULL,
+    date_time   text         DEFAULT ''  NOT NULL,
 
     PRIMARY KEY (uid),
     KEY parent (pid)

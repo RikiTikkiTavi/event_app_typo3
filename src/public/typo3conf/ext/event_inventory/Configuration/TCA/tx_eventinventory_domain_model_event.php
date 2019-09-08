@@ -23,10 +23,10 @@ return [
         ],
         'date_time' => [
             'label' => 'LLL:EXT:event_inventory/Resources/Private/Language/locallang_db.xlf:tx_eventinventory_domain_model_event.date_time',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
-                'eval' => 'datetime'
-            ),
+                'eval' => 'trim'
+            ],
         ],
     ],
     'types' => [
