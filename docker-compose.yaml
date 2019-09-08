@@ -5,10 +5,10 @@ services:
     ports:
       - "80:80"
     volumes:
-      - public/fileadmin:/app/public/fileadmin
-      - public/typo3conf:/app/typo3conf
-    networks:
-      - backend
+      - ./public/fileadmin:/app/public/fileadmin
+      - ./public/typo3conf:/app/typo3conf
+    depends_on:
+      - database
   database:
     image: mysql:5.7
     command:
