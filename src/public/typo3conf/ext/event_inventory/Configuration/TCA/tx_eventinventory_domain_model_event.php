@@ -25,7 +25,9 @@ return [
             'label' => 'LLL:EXT:event_inventory/Resources/Private/Language/locallang_db.xlf:tx_eventinventory_domain_model_event.date_time',
             'config' => [
                 'type' => 'input',
-                'eval' => 'trim'
+                'renderType' => 'inputDateTime',
+                'dbType' => 'datetime',
+                'eval' => 'datetime',
             ],
         ],
     ],

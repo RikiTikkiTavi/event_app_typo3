@@ -24,28 +24,22 @@ class Event extends AbstractEntity
     /**
      * The date time in the event
      *
-     * @var string
+     * @var \DateTime
      **/
-    protected $date_time = null;
-
-    private function log($msg)
-    {
-        $logger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\Log\LogManager')->getLogger(__CLASS__);
-        $logger->info($msg);
-    }
+    protected $dateTime = null;
 
     /**
      * Event constructor.
      *
      * @param string $name
      * @param string $description
-     * @param string $date_time
+     * @param \DateTime $dateTime
      */
-    public function __construct($name = '', $description = '', $date_time = null)
+    public function __construct($name = '', $description = '', $dateTime = null)
     {
         $this->setName($name);
         $this->setDescription($description);
-        $this->setDate_Time($date_time);
+        $this->setDateTime($dateTime);
     }
 
     /**
@@ -91,21 +85,21 @@ class Event extends AbstractEntity
     /**
      * Sets the date time in the event inventory of the event
      *
-     * @param string $date_time
+     * @param \DateTime $date_time
      */
-    public function setDate_Time($date_time)
+    public function setDateTime($date_time)
     {
-        $this->date_time = $date_time;
+        $this->dateTime = $date_time;
     }
 
     /**
      * Gets the date time in the event inventory of the event
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getDate_Time()
+    public function getDateTime()
     {
-        return $this->date_time;
+        return $this->dateTime;
     }
 
 }

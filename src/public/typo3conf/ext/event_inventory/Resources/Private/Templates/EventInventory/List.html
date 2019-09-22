@@ -10,7 +10,9 @@
             <p align="top">
                 <f:format.crop maxCharacters="20">{event.description}</f:format.crop>
             </p>
-            <p align="top">{event.date_time}</p>
+            <p align="top">
+                <f:format.date format="Y.m.d h:m">{event.dateTime}</f:format.date>
+            </p>
             <hr/>
         </div>
     </f:for>

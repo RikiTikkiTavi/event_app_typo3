@@ -1,5 +1,5 @@
-rootPageId: 87
-base: /about
+rootPageId: 2
+base: /intro
 baseVariants: {  }
 languages:
   -
@@ -13,6 +13,6 @@ languages:
     navigationTitle: ''
     hreflang: ''
     direction: ''
-    flag: en-us-gb
+    flag: global
 errorHandling: {  }
 routes: {  }

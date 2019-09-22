@@ -29,12 +29,6 @@ class EventInventoryController extends ActionController
         $this->eventRepository = $eventRepository;
     }
 
-    private function log($msg)
-    {
-        $logger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\Log\LogManager')->getLogger(__CLASS__);
-        $logger->info($msg);
-    }
-
     /**
      * List Action
      *

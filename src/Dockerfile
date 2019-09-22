@@ -24,21 +24,10 @@ COPY . /app
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php && \
     php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
-RUN cd /app && composer install
-RUN ls -l
-RUN php vendor/bin/typo3cms install:setup \
-    --non-interactive \
-    --database-user-name=root \
-    --database-user-password=toor \
-    --database-host-name=127.0.0.1 \
-    --database-port=3306 \
-    --database-name=typo3_95 \
-    --use-existing-database \
-    --admin-user-name=admin \
-    --admin-password=adminadmin \
-    --site-setup-type=site
-
-RUN php -S localhost:8000 -t public
+RUN cd /app && \
+    composer install && \
+    ls -l ./public && \
+    php -S localhost:8000 -t public
 
 
 
