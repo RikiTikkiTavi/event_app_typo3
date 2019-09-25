@@ -102,4 +102,9 @@ class Event extends AbstractEntity
         return $this->dateTime;
     }
 
+    public function equalsYear($year)
+    {
+        return intval($this->dateTime->format("Y")) == $year;
+    }
+
 }

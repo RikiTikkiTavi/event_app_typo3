@@ -30,6 +30,18 @@ class EventInventoryController extends ActionController
     }
 
     /**
+     * List of months of the specific year where are some events with event quantities
+     *
+     * @param int $year
+     * @return void
+     */
+    public function yearMonthListAction($year = 0)
+    {
+        $events = $this->eventRepository->getEventMonthsByYear($year);
+        $this->view->assign('events', $events);
+    }
+
+    /**
      * List Action
      *
      * @return void
