@@ -1,0 +1,43 @@
+<div>
+    <f:link.action action="yearMonthList"
+                   controller="EventInventory"
+                   arguments="{year : prevYear}">
+        {prevYear}
+    </f:link.action>
+    <h3>{year}</h3>
+    <f:link.action action="yearMonthList"
+                   controller="EventInventory"
+                   arguments="{year : nextYear}">
+        {nextYear}
+    </f:link.action>
+</div>
+
+<hr/>
+
+<f:groupedFor each="{events}"
+              as="eventsOfMonth"
+              groupBy="month"
+              groupKey="month">
+    <div>
+        <h4>{month}</h4>
+        <f:for each="{eventsOfMonth}"
+               as="event">
+            <div style="margin-top: 3px; border: 1px solid black">
+                <div>
+                    <f:link.action action="item"
+                                   controller="EventInventory"
+                                   arguments="{event : event}">
+                        {event.name}
+                    </f:link.action>
+                </div>
+                <div>
+                    Event time:
+                    <f:format.date format="d.m.Y - H:i">{event.dateTime}</f:format.date>
+                </div>
+                <div>
+                    <f:format.crop maxCharacters="20">{event.description}</f:format.crop>
+                </div>
+            </div>
+        </f:for>
+    </div>
+</f:groupedFor>

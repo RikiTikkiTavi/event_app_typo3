@@ -6,10 +6,10 @@ defined('TYPO3_MODE') || die('Access denied.');
     'MyVendor.EventInventory',
     'EventList',
     [
-        'EventInventory' => 'list, item',
+        'EventInventory' => 'yearMonthList, list, item',
     ],
     // non-cacheable actions
     [
-        'EventInventory' => 'list, item',
+        'EventInventory' => 'list, yearMonthList, item',
     ]
 );

@@ -5,6 +5,7 @@ namespace MyVendor\EventInventory\Controller;
 use MyVendor\EventInventory\Domain\Model\Event;
 use MyVendor\EventInventory\Domain\Repository\EventRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
 /**
  * Class EventInventoryController
@@ -29,6 +30,13 @@ class EventInventoryController extends ActionController
         $this->eventRepository = $eventRepository;
     }
 
+    private function initEventsMonth($events)
+    {
+        foreach ($events as $event) {
+            $event->initMonthName();
+        }
+    }
+
     /**
      * List of months of the specific year where are some events with event quantities
      *
@@ -37,8 +45,21 @@ class EventInventoryController extends ActionController
      */
     public function yearMonthListAction($year = 0)
     {
+
+        if ($year == 0) {
+            $year = date("Y");
+        }
+
+        $nextYear = $year+1;
+        $prevYear = $year-1;
         $events = $this->eventRepository->getEventMonthsByYear($year);
+
+        $this->initEventsMonth($events);
+
         $this->view->assign('events', $events);
+        $this->view->assign('year', $year);
+        $this->view->assign('nextYear', $nextYear);
+        $this->view->assign('prevYear', $prevYear);
     }
 
     /**

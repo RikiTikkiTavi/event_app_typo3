@@ -29,6 +29,12 @@ class Event extends AbstractEntity
     protected $dateTime = null;
 
     /**
+     * Month of the event
+     * @var string
+     */
+    protected $month = "January";
+
+    /**
      * Event constructor.
      *
      * @param string $name
@@ -40,6 +46,7 @@ class Event extends AbstractEntity
         $this->setName($name);
         $this->setDescription($description);
         $this->setDateTime($dateTime);
+        $this->month = $this->extractMonth($dateTime);
     }
 
     /**
@@ -85,11 +92,12 @@ class Event extends AbstractEntity
     /**
      * Sets the date time in the event inventory of the event
      *
-     * @param \DateTime $date_time
+     * @param \DateTime $dateTime
      */
-    public function setDateTime($date_time)
+    public function setDateTime($dateTime)
     {
-        $this->dateTime = $date_time;
+        $this->month = $this->extractMonth($dateTime);
+        $this->dateTime = $dateTime;
     }
 
     /**
@@ -105,6 +113,32 @@ class Event extends AbstractEntity
     public function equalsYear($year)
     {
         return intval($this->dateTime->format("Y")) == $year;
+    }
+
+    private function extractMonth(\DateTime $dateTime)
+    {
+        return $dateTime->format("F");
+    }
+
+    /**
+     * @return string
+     */
+    public function getMonth(): string
+    {
+        return $this->month;
+    }
+
+    public function initMonthName(): void
+    {
+        $this->month = $this->extractMonth($this->dateTime);
+    }
+
+    /**
+     * @param string $month
+     */
+    public function setMonth(string $month): void
+    {
+        $this->month = $month;
     }
 
 }
