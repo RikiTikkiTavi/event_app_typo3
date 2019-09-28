@@ -17,7 +17,7 @@ return [
                 'charset' => 'utf8mb4',
                 'dbname' => 'typo3',
                 'driver' => 'mysqli',
-                'host' => '127.0.0.1',
+                'host' => 'database',
                 'password' => 'toor',
                 'port' => 3306,
                 'tableoptions' => [
