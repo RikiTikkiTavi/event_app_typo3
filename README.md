@@ -1,9 +1,12 @@
 Event app
 
-Run:
+Run first time:
 ```
-docker-compose up
+docker-compose up --build
 ```
 
 Available on:
-http://0.0.0.0:800
+http://0.0.0.0:8000
+
+Add new events in:
+Admin panel > List > Events > Events (folder)
