@@ -30,6 +30,14 @@ class EventInventoryController extends ActionController
         $this->eventRepository = $eventRepository;
     }
 
+    /*private function prepareEvents($events){
+
+        foreach($events as $event){
+            $event->initMonthName();
+
+        }
+    }*/
+
     private function initEventsMonth($events)
     {
         foreach ($events as $event) {
@@ -55,6 +63,9 @@ class EventInventoryController extends ActionController
         $events = $this->eventRepository->getEventMonthsByYear($year);
 
         $this->initEventsMonth($events);
+        usort($events, function ($e1, $e2) {
+            return $e1->getDateTime() > $e2->getDateTime();
+        });
 
         $this->view->assign('events', $events);
         $this->view->assign('year', $year);
