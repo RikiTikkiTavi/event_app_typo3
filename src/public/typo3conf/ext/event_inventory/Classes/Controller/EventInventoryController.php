@@ -5,7 +5,6 @@ namespace MyVendor\EventInventory\Controller;
 use MyVendor\EventInventory\Domain\Model\Event;
 use MyVendor\EventInventory\Domain\Repository\EventRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
 /**
  * Class EventInventoryController
@@ -29,14 +28,6 @@ class EventInventoryController extends ActionController
     {
         $this->eventRepository = $eventRepository;
     }
-
-    /*private function prepareEvents($events){
-
-        foreach($events as $event){
-            $event->initMonthName();
-
-        }
-    }*/
 
     private function initEventsMonth($events)
     {
